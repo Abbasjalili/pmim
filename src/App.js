@@ -1,11 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
+import PieChart from './components/PieChart';
 import { UserData } from './Data';
 import { useState } from 'react';
 
 function App() {
-  const [userData, setUserData]= useState({
+  const [userData]= useState({
     labels: UserData.map((data) => data.year),
     datasets: [{
       label: "Users Gained",
@@ -17,15 +19,24 @@ function App() {
         "#f3ba2f",
         "#2a71d0",
       ],
+      borderColor: "black",
+      borderWidth: 2,
+
     },
   ],
 })
 
 
   return (
-    <div className="App">
-      <div style = {{ width: 700}}>
+    <div className="App" style = {{display: "relative"}}>
+      <div style = {{ width: 700, height: 600}}>
         <BarChart chartData={userData} />
+      </div>
+      <div style = {{ width: 700, height: 600}}>
+        <LineChart chartData={userData} />
+      </div>
+      <div style = {{ width: 700, height: 400}}>
+        <PieChart chartData={userData} />
       </div>
     </div>
   );
