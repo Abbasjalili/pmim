@@ -1,13 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import BarChart from './components/BarChart';
+import { UserData } from './Data';
 
 function App() {
+  const [ UserData, setUserData] = useState({
+    labels: UserData.map((data) => data.year),
+    datasets: [{
+      label: "Users Gained",
+      data: UserData.map((data) => data.userGain)
+    }]
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        Deployment is happening here!
-      </header>
+      <BarChart chartData={UserData}/>
     </div>
   );
 }
