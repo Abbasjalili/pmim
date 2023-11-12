@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <div className="App" style = {{display: "relative"}}>
+    <div className="App" style = {{display: "flex"}}>
       <div style = {{ width: 700, height: 600}}>
         <BarChart chartData={userData} />
       </div>
